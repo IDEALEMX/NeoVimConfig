@@ -1,28 +1,21 @@
-local font_size = 12
-local last_func = function ()
-    vim.notify("No function yet!", vim.log.levels.WARN)
-end
+vim.g.font_size = 12
 
 local function inc_font ()
-    font_size = font_size + 1
-    vim.o.guifont = "JetBrainsMono Nerd Font:h" .. font_size
-    last_func = inc_font
+    vim.g.font_size = vim.g.font_size + 1
+    vim.o.guifont = "JetBrainsMono Nerd Font:h" .. vim.g.font_size
 end
 
 local function dec_font ()
-    font_size = font_size - 1
-    vim.o.guifont = "JetBrainsMono Nerd Font:h" .. font_size
-    last_func = dec_font
+    vim.g.font_size = vim.g.font_size - 1
+    vim.o.guifont = "JetBrainsMono Nerd Font:h" .. vim.g.font_size
 end
 
 local function inc_trans ()
     vim.g.neovide_opacity = vim.g.neovide_opacity + 0.1
-    last_func = inc_trans
 end
 
 local function dec_trans ()
     vim.g.neovide_opacity = vim.g.neovide_opacity - 0.1
-    last_func = inc_trans
 end
 
 if vim.g.neovide then
@@ -30,24 +23,9 @@ if vim.g.neovide then
     local wk = require("which-key")
 
     wk.add({
-        {"<leader>gj", function ()
-            inc_font()
-        end, desc = "Increase font size", mode = "n"},
-
-        {"<leader>g;", function ()
-            dec_font()
-        end, desc = "Decrease font size", mode = "n"},
-
-        {"<leader>gm", function ()
-            inc_trans()
-        end, desc = "Increase font size", mode = "n"},
-
-        {"<leader>go", function ()
-            dec_trans()
-        end, desc = "Increase font size", mode = "n"},
-
-        {"<leader>g.", function ()
-           last_func()
-        end, desc = "Last gui func", mode = "n"},
+        {"<leader>gl", inc_font, desc = "Increase font size", mode = "n"},
+        {"<leader>g;", dec_font, desc = "Decrease font size", mode = "n"},
+        {"<leader>gn", inc_trans, desc = "Increase font size", mode = "n"},
+        {"<leader>go", dec_trans, desc = "Increase font size", mode = "n"},
     })
 end

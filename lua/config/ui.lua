@@ -10,7 +10,6 @@ vim.o.softtabstop = 4
 vim.o.tabstop = 4
 
 vim.o.smartindent = true
-vim.o.inccommand = "split"
 
 -- Splits
 vim.o.splitbelow = true
