@@ -66,3 +66,13 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc="Page down and center"})
 
 vim.keymap.set("n", "n", "nzzzv", { desc="Next and center"})
 vim.keymap.set("n", "N", "Nzzzv", { desc="Prev and center"})
+
+-- Terminal
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { silent = true })
+
+-- Macro (Assumes macro a is used)
+wk.add({
+    {"<leader>m", group = "Macro"},
+
+    {"<leader>mn", "@an", desc = "Next", mode = "n"},
+})

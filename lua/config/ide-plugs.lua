@@ -1,5 +1,5 @@
 local wk = require("which-key")
-wk.add({{"<leader>l", group = "Local plugins"}})
+wk.add({{"<leader>l", group = "Local plugins", icon = {icon = " ", color = "purple"}}})
 
 -- Zen mode
 local zm = require("personal.zen-mode")
@@ -13,6 +13,7 @@ local cl = require("personal.cd-list.init")
 
 cl.setup({
     content = {
+        "~/.config/",
         "~/.config/nvim/",
         "~/upekshitam/"
     }})

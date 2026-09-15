@@ -24,7 +24,7 @@ vim.o.laststatus = 3
 vim.o.scrolloff = 8
 
 -- Cmdline
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 
 -- Visual feedback when yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -105,3 +105,6 @@ vim.api.nvim_create_autocmd('ColorScheme', {
   callback = set_terminal_colors,
   desc = 'Sync terminal colors with active colorscheme',
 })
+
+-- Which key ui tweaks
+vim.api.nvim_set_hl(0, "WhichKeyIcon", { underline = false })

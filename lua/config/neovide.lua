@@ -23,9 +23,10 @@ if vim.g.neovide then
     local wk = require("which-key")
 
     wk.add({
-        {"<leader>gl", inc_font, desc = "Increase font size", mode = "n"},
-        {"<leader>g;", dec_font, desc = "Decrease font size", mode = "n"},
-        {"<leader>gn", inc_trans, desc = "Increase font size", mode = "n"},
-        {"<leader>go", dec_trans, desc = "Increase font size", mode = "n"},
+        {"<leader>g", group="Gui", icon = {icon = "󰈈 ", color = "cyan"}},
+        {"<leader>gl", inc_font, desc = "Increase font size", mode = "n", icon = " "},
+        {"<leader>g;", dec_font, desc = "Decrease font size", mode = "n", icon = " "},
+        {"<leader>gn", inc_trans, desc = "Increase font size", mode = "n", icon = " "},
+        {"<leader>go", dec_trans, desc = "Increase font size", mode = "n", icon = " "},
     })
 end
