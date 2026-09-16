@@ -52,6 +52,53 @@ wk.add({
     {"<leader>ta", ":tabnew<CR>", desc = "Add", mode = "n"},
 })
 
+-- Sorround
+local tovisual_prefix = "v_<Esc>v$h"
+wk.add({
+    {"<leader>s", group = "Sorround", mode = {"n", "v"}},
+
+    {"<leader>si", group = "Inside", mode = {"n", "v"}},
+
+    {"<leader>sa", group = "Around", mode = {"n", "v"}},
+
+    {'<leader>siq', 'c"<C-r>""<Esc>', desc = "Quotes", mode = "v"},
+    {'<leader>saq', 'c" <C-r>" "<Esc>', desc = "Quotes", mode = "v"},
+
+    {'<leader>siq', tovisual_prefix .. 'c"<C-r>""<Esc>', desc = "Quotes", mode = "n"},
+    {'<leader>saq', tovisual_prefix .. 'c" <C-r>" "<Esc>', desc = "Quotes", mode = "n"},
+
+    {'<leader>siq', tovisual_prefix .. 'c"<C-r>""<Esc>', desc = "Quotes", mode = "n"},
+    {'<leader>saq', tovisual_prefix .. 'c" <C-r>" "<Esc>', desc = "Quotes", mode = "n"},
+
+    {'<leader>sic', 'c{<C-r>"}<Esc>', desc = "Curly braces", mode = "v"},
+    {'<leader>sac', 'c{ <C-r>" }<Esc>', desc = "Curly braces", mode = "v"},
+
+    {'<leader>sic', tovisual_prefix .. 'c{<C-r>"}<Esc>', desc = "Curly braces", mode = "n"},
+    {'<leader>sac', tovisual_prefix .. 'c{ <C-r>" }<Esc>', desc = "Curly braces", mode = "n"},
+
+    {'<leader>sis', 'c[<C-r>"]<Esc>', desc = "Square braces", mode = "v"},
+    {'<leader>sas', 'c[ <C-r>" ]<Esc>', desc = "Square braces", mode = "v"},
+
+    {'<leader>sis', tovisual_prefix .. 'c[<C-r>"]<Esc>', desc = "Square braces", mode = "n"},
+    {'<leader>sas', tovisual_prefix .. 'c[ <C-r>" ]<Esc>', desc = "Square braces", mode = "n"},
+
+    {'<leader>sib', 'c(<C-r>")<Esc>', desc = "Braces", mode = "v"},
+    {'<leader>sab', 'c( <C-r>" )<Esc>', desc = "Braces", mode = "v"},
+
+    {'<leader>sib', tovisual_prefix .. 'c(<C-r>")<Esc>', desc = "Braces", mode = "n"},
+    {'<leader>sab', tovisual_prefix .. 'c( <C-r>" )<Esc>', desc = "Braces", mode = "n"},
+
+    {'<leader>sit', 'c<%%-!%%><C-r>"</%%-!%%><Esc>:%s/%%-!%%//g<Left><Left>', desc = "Tags", mode = "v"},
+    {'<leader>sat', 'c<%%-!%%><CR><C-r>"<CR></%%-!%%><Esc>:%s/%%-!%%//g<Left><Left>', desc = "Tags", mode = "v"},
+
+    {'<leader>sit', tovisual_prefix .. 'c<%%-!%%><C-r>"</%%-!%%><Esc>:%s/%%-!%%//g<Left><Left>', desc = "Tags", mode = "n"},
+    {'<leader>sat', tovisual_prefix .. 'c<%%-!%%><CR><C-r>"<CR></%%-!%%><Esc>:%s/%%-!%%//g<Left><Left>', desc = "Tags", mode = "n"},
+})
+
+wk.add({
+    {"<leader>r", ":%s/", desc="Replace"},
+})
+
 -- Qol
 vim.keymap.set("n", "<Esc>", ":nohl<CR>", { desc="Remove highlights form previous search", silent = true })
 
@@ -67,12 +114,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc="Page down and center"})
 vim.keymap.set("n", "n", "nzzzv", { desc="Next and center"})
 vim.keymap.set("n", "N", "Nzzzv", { desc="Prev and center"})
 
+vim.keymap.set("v", "<leader>l", "_<Esc>v$h", { desc="select full line wo \\n"})
+
 -- Terminal
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { silent = true })
-
--- Macro (Assumes macro a is used)
-wk.add({
-    {"<leader>m", group = "Macro"},
-
-    {"<leader>mn", "@an", desc = "Next", mode = "n"},
-})

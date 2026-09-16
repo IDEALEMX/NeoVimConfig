@@ -13,8 +13,8 @@ local cl = require("personal.cd-list.init")
 
 cl.setup({
     content = {
-        "~/.config/",
         "~/.config/nvim/",
+        "~/.config/",
         "~/upekshitam/"
     }})
 

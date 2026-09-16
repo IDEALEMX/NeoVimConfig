@@ -23,8 +23,11 @@ vim.o.laststatus = 3
 -- Scroll max
 vim.o.scrolloff = 8
 
+-- Smooth scrooll
+vim.o.smoothscroll = true
+
 -- Cmdline
-vim.o.cmdheight = 1
+vim.o.cmdheight = 0
 
 -- Visual feedback when yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
