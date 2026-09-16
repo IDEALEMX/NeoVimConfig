@@ -114,7 +114,5 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc="Page down and center"})
 vim.keymap.set("n", "n", "nzzzv", { desc="Next and center"})
 vim.keymap.set("n", "N", "Nzzzv", { desc="Prev and center"})
 
-vim.keymap.set("v", "<leader>l", "_<Esc>v$h", { desc="select full line wo \\n"})
-
 -- Terminal
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { silent = true })

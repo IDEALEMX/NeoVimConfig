@@ -21,3 +21,15 @@ cl.setup({
 wk.add({
     {"<leader>lc", cl.open, desc = "Open cd list", mode = "n"},
 })
+
+local it = require("personal.ide-term")
+
+it.setup({
+    width = math.floor(vim.o.columns * (4/6)),
+    height = math.floor(vim.o.lines * (4/6))
+})
+
+wk.add({
+    {"<leader>lt", it.showterm, desc = "Open terminal buffer", mode = "n"},
+})
+
