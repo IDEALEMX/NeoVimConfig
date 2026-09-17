@@ -2,6 +2,8 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function ()
+
+        --- Modules ---
         local function macro_recording()
             local recording_register = vim.fn.reg_recording()
             if recording_register == "" then
@@ -10,6 +12,16 @@ return {
                 return "REC @" .. recording_register
             end
         end
+
+        local battery_component = {
+            function()
+                return require("battery").get_status_line()
+            end,
+            cond = function()
+                -- Optional: only show if package is loaded
+                return package.loaded["battery"] ~= nil
+            end,
+        }
 
         require('lualine').setup {
             options = {
@@ -49,8 +61,8 @@ return {
             sections = {
                 lualine_a = {'mode'},
                 lualine_b = {'branch', 'diff', 'diagnostics'},
-                lualine_c = {'filename'},
-                lualine_x = {'filetype'},
+                lualine_c = {'filename', 'filetype'},
+                lualine_x = { battery_component},
                 lualine_y = {function ()
                     local mr = macro_recording()
                     if mr then

@@ -33,3 +33,24 @@ wk.add({
     {"<leader>lt", it.showterm, desc = "Open terminal buffer", mode = "n"},
 })
 
+local pl = require("personal.prog-launcher")
+
+wk.add({
+    {"<leader>lv", function ()
+        pl.open(true)
+    end, desc = "Launch prog as vsplit", mode = "n"},
+    {"<leader>ls", function ()
+        pl.open(false)
+    end, desc = "Launch prog as split", mode = "n"},
+})
+
+local ev = require("personal.eval")
+wk.add({
+    {"<leader>led", function ()
+        ev.define_cmd()
+    end, desc = "Launch prog as vsplit", mode = "n"},
+    {"<leader>lev", function ()
+        ev.eval()
+    end, desc = "Launch prog as split", mode = "n"},
+})
+

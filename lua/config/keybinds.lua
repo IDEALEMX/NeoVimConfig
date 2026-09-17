@@ -28,6 +28,7 @@ wk.add({
 
     {"<leader>bf", ":FzfLua buffers<CR>", desc = "Find", mode = "n"},
     {"<leader>bk", ":bd<CR>", desc = "Kill", mode = "n"},
+    {"<leader>b!", ":bd!<CR>", desc = "Kill!", mode = "n"},
     {"<leader>bn", ":bnext<CR>", desc = "Next", mode = "n"},
 })
 
@@ -115,4 +116,4 @@ vim.keymap.set("n", "n", "nzzzv", { desc="Next and center"})
 vim.keymap.set("n", "N", "Nzzzv", { desc="Prev and center"})
 
 -- Terminal
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { silent = true })
+vim.keymap.set("t", "<F4>", [[<C-\><C-n>]], { silent = true })

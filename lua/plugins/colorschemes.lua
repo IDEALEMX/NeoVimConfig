@@ -7,5 +7,8 @@ return {
     },
     {
         "owickstrom/vim-colors-paramount"
+    },
+    {
+        "RRethy/base16-nvim"
     }
 }

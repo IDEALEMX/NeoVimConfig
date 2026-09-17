@@ -11,7 +11,7 @@ M.create_term_buf = function ()
         --vim.fn.termopen(vim.o.shell)
         vim.cmd(":terminal")
         vim.cmd("normal! A")
-        vim.keymap.set("n", "<Esc>", "<C-w>c", {buffer = M.bufn})
+        vim.keymap.set("n", "<F4>", "<C-w>c", {buffer = M.bufn})
         vim.api.nvim_create_autocmd("BufUnload", {
             buffer = M.bufn,
             callback = function()

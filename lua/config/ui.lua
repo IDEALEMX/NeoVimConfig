@@ -18,7 +18,6 @@ vim.o.splitright = true
 -- Case
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.laststatus = 3
 
 -- Scroll max
 vim.o.scrolloff = 8
@@ -26,20 +25,22 @@ vim.o.scrolloff = 8
 -- Smooth scrooll
 vim.o.smoothscroll = true
 
+-- Disable wraping
+vim.o.wrap = false
+
 -- Cmdline
 vim.o.cmdheight = 0
 
 -- Visual feedback when yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Add a highlight for visual feedback when yanking",
-    callback = function ()
-        vim.hl.on_yank()
+desc = "Add a highlight for visual feedback when yanking",
+callback = function ()
+    vim.hl.on_yank()
     end
 })
 
 -- Colors
 vim.o.termguicolors = true
-vim.cmd("colorscheme paramount")
 
 -- Save undo
 vim.o.undofile = true
