@@ -1,4 +1,5 @@
-vim.g.font_size = 12
+vim.g.font_size = 14
+vim.o.guifont = "JetBrainsMono Nerd Font:h" .. vim.g.font_size
 
 local function inc_font ()
     vim.g.font_size = vim.g.font_size + 1
@@ -19,10 +20,10 @@ local function dec_trans ()
 end
 
 if vim.g.neovide then
-    vim.g.neovide_opacity = 0.7
-    local wk = require("which-key")
+    vim.g.neovide_opacity = 0.8
+local wk = require("which-key")
 
-    wk.add({
+wk.add({
         {"<leader>g", group="Gui", icon = {icon = "󰈈 ", color = "cyan"}},
         {"<leader>gl", inc_font, desc = "Increase font size", mode = "n", icon = " "},
         {"<leader>g;", dec_font, desc = "Decrease font size", mode = "n", icon = " "},

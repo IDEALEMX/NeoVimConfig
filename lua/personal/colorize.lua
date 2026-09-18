@@ -12,6 +12,8 @@ local PURPLE = {
 
     warning = "#ff00ff",
     error = "#ff00aa",
+
+    wall = os.getenv("HOME") .. "/Downloads/wals/bw-foxgirl.png",
 }
 
 local LOW_PURPLE = {
@@ -26,6 +28,8 @@ local LOW_PURPLE = {
 
     warning = "#d58bbf",
     error = "#d16a91",
+
+    wall = os.getenv("HOME") .. "/Downloads/wals/bw-foxgirl.png",
 }
 
 local TOP = {
@@ -40,6 +44,8 @@ local TOP = {
 
     warning = "#d8a928",
     error = "#c91f2a",
+
+    wall = os.getenv("HOME") .. "/Downloads/wals/evan.png",
 }
 
 local GRUVBOX = {
@@ -54,6 +60,8 @@ local GRUVBOX = {
 
     warning = "#d8a657",
     error = "#ea6962",
+
+    wall = os.getenv("HOME") .. "/Downloads/wals/evan.png",
 }
 
 local colors = TOP
@@ -107,10 +115,12 @@ require("lualine").setup({
     },
 })
 
+vim.o.laststatus = 3
+
 -- Config paths
 local paths = {
-    wallpaper = os.getenv("HOME") .. "/Downloads/wals/bw-foxgirl.png",
-    --wallpaper = os.getenv("HOME") .. "~/Downloads/wals/tardis.png",
+    --wallpaper = os.getenv("HOME") .. "/Downloads/wals/tardis.png",
+    wallpaper = colors.wall,
     colorwal_script = os.getenv("HOME") .. "/bash/colorwal",
     hyprland = os.getenv("HOME") .. "/.config/hypr/hyprland.lua",
     fuzzle = os.getenv("HOME") .. "/.config/fuzzel/fuzzel.ini",
